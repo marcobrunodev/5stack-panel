@@ -8,10 +8,10 @@ checkout_repos() {
     
     # Define repos to checkout (format: "name url")
     repos=(
-        "api https://github.com/5stackgg/api.git"
+        "api https://github.com/marcobrunodev/api.git"
         "web https://github.com/marcobrunodev/web.git"
-        "game-server https://github.com/5stackgg/game-server.git"
-        "game-server-node-connector https://github.com/5stackgg/game-server-node-connector.git"
+        "game-server https://github.com/marcobrunodev/game-server.git"
+        "game-server-node-connector https://github.com/marcobrunodev/game-server-node-connector.git"
     )
     
     echo "Checking for required repositories in: $PARENT_DIR"
