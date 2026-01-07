@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/utils/utils.sh"
+source "$SCRIPT_DIR/utils/utils_banana.sh"
 
 checkout_repos
 
