@@ -34,7 +34,7 @@ spec:
                     values:
                       - 'true'
       containers:
-        - image: ghcr.io/5stackgg/web:banana-server
+        - image: ghcr.io/marcobrunodev/web:banana-server
           name: web
           ports:
             - containerPort: 3000
