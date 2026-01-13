@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: api
+    version: v1.0.0
   name: api
   namespace: 5stack
 spec:
@@ -35,7 +36,7 @@ spec:
                 values:
                   - "true"
       containers:
-        - image: ghcr.io/5stackgg/api:latest
+        - image: ghcr.io/5stackgg/api:banana-server
           name: api
           ports:
             - containerPort: 5585
