@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: api
-    version: v1.0.1
+    version: v1.0.2
   name: api
   namespace: 5stack
 spec:
