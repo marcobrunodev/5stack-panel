@@ -36,7 +36,7 @@ spec:
                 values:
                   - "true"
       containers:
-        - image: ghcr.io/5stackgg/api:banana-server
+        - image: ghcr.io/marcobrunodev/api:banana-server
           name: api
           ports:
             - containerPort: 5585
