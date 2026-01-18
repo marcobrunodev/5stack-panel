@@ -3,7 +3,7 @@ allow_k8s_contexts('default')
 k8s_yaml(kustomize("./overlays/dev", kustomize_bin="./kustomize"))
 
 docker_build(
-    "ghcr.io/5stackgg/api:latest",
+    "ghcr.io/marcobrunodev/api:banana-server",
     "../api",
     dockerfile='../api/Dockerfile.dev',
     live_update=[
