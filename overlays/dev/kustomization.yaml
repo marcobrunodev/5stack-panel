@@ -208,6 +208,7 @@ patches:
             initContainers:
               - name: migrations
                 image: ghcr.io/marcobrunodev/api:banana-server
+                imagePullPolicy: Always
                 command:
                   - /bin/sh
                   - -c
