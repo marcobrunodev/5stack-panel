@@ -207,7 +207,7 @@ patches:
           spec:
             initContainers:
               - name: migrations
-                image: ghcr.io/5stackgg/api:latest
+                image: ghcr.io/marcobrunodev/api:banana-server
                 command:
                   - /bin/sh
                   - -c
