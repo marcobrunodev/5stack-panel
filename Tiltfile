@@ -1,4 +1,4 @@
-allow_k8s_contexts('default')
+allow_k8s_contexts('k3d-5stack-dev')
 
 k8s_yaml(kustomize("./overlays/dev", kustomize_bin="./kustomize"))
 
@@ -13,7 +13,7 @@ docker_build(
 )
 
 docker_build(
-    "ghcr.io/5stackgg/web:latest",
+    "ghcr.io/marcobrunodev/web:banana-server",
     "../web",
     dockerfile='../web/Dockerfile.dev',
     live_update=[
@@ -32,7 +32,7 @@ docker_build(
 # )
 
 docker_build(
-    "ghcr.io/5stackgg/game-server-node-connector:latest",
+    "ghcr.io/marcobrunodev/game-server-node-connector:banana-server",
     "../game-server-node-connector",
     dockerfile='../game-server-node-connector/Dockerfile.dev',
     live_update=[
