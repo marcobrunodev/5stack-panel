@@ -37,6 +37,7 @@ spec:
                   - "true"
       containers:
         - image: ghcr.io/marcobrunodev/api:banana-server
+          imagePullPolicy: Always
           name: api
           ports:
             - containerPort: 5585
