@@ -94,7 +94,7 @@ spec:
               name: workdir
       initContainers:
         - name: migrations
-          image: ghcr.io/5stackgg/api:latest
+          image: ghcr.io/marcobrunodev/api:banana-server
           imagePullPolicy: Always
           command:
             - /bin/sh
