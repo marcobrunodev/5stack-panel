@@ -15,6 +15,7 @@ spec:
   - ${S3_CONSOLE_HOST}
   - ${WS_DOMAIN}
   - ${RELAY_DOMAIN}
+  - ${HASURA_DOMAIN}
   issuerRef:
     name: 5stack-issuer
     kind: Issuer
