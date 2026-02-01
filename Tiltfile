@@ -1,5 +1,7 @@
 allow_k8s_contexts('k3d-5stack-dev')
 
+update_settings(suppress_unused_image_warnings=["ghcr.io/marcobrunodev/game-server-node-connector:banana-server"])
+
 k8s_yaml(kustomize("./overlays/dev", kustomize_bin="./kustomize"))
 
 docker_build(

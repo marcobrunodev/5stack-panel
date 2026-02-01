@@ -7,7 +7,6 @@ resources:
   # - dev-game-server
   - dev-game-stream
   - queues
-  - hasura
 
 replacements:
   - source:
@@ -160,6 +159,26 @@ replacements:
           name: 5stack-ssl
         fieldPaths:
           - spec.dnsNames.6
+  - source:
+      kind: ConfigMap
+      name: api-config
+      fieldPath: data.HASURA_DOMAIN
+    targets:
+      - select:
+          kind: Ingress
+          name: hasura-console
+        fieldPaths:
+          - spec.rules.0.host
+      - select:
+          kind: Ingress
+          name: hasura-console
+        fieldPaths:
+          - spec.tls.0.hosts.0
+      - select:
+          kind: Certificate
+          name: 5stack-ssl
+        fieldPaths:
+          - spec.dnsNames.7
   - source:
       kind: ConfigMap
       name: api-config

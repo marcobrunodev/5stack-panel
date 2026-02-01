@@ -1,16 +1,16 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: hasura-dashboard
+  name: hasura-console
   namespace: 5stack
 spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - hasura.5stack.localhost
+        - ${HASURA_DOMAIN}
       secretName: 5stack-ssl
   rules:
-    - host: hasura.5stack.localhost
+    - host: ${HASURA_DOMAIN}
       http:
         paths:
           - backend:

@@ -191,11 +191,12 @@ WS_DOMAIN=$(grep -h "^WS_DOMAIN=" overlays/config/api-config.env | cut -d '=' -f
 API_DOMAIN=$(grep -h "^API_DOMAIN=" overlays/config/api-config.env | cut -d '=' -f2-)
 RELAY_DOMAIN=$(grep -h "^RELAY_DOMAIN=" overlays/config/api-config.env | cut -d '=' -f2-)
 DEMOS_DOMAIN=$(grep -h "^DEMOS_DOMAIN=" overlays/config/api-config.env | cut -d '=' -f2-)
+HASURA_DOMAIN=$(grep -h "^HASURA_DOMAIN=" overlays/config/api-config.env | cut -d '=' -f2-)
 MAIL_FROM=$(grep -h "^MAIL_FROM=" overlays/config/api-config.env | cut -d '=' -f2-)
 S3_CONSOLE_HOST=$(grep -h "^S3_CONSOLE_HOST=" overlays/config/s3-config.env | cut -d '=' -f2-)
 TYPESENSE_HOST=$(grep -h "^TYPESENSE_HOST=" overlays/config/typesense-config.env | cut -d '=' -f2-)
 
-if [ -z "$WEB_DOMAIN" ] || [ -z "$WS_DOMAIN" ] || [ -z "$API_DOMAIN" ] || [ -z "$RELAY_DOMAIN" ] || [ -z "$DEMOS_DOMAIN" ] || [ -z "$MAIL_FROM" ] || [ -z "$S3_CONSOLE_HOST" ] || [ -z "$TYPESENSE_HOST" ]; then
+if [ -z "$WEB_DOMAIN" ] || [ -z "$WS_DOMAIN" ] || [ -z "$API_DOMAIN" ] || [ -z "$RELAY_DOMAIN" ] || [ -z "$DEMOS_DOMAIN" ] || [ -z "$HASURA_DOMAIN" ] || [ -z "$MAIL_FROM" ] || [ -z "$S3_CONSOLE_HOST" ] || [ -z "$TYPESENSE_HOST" ]; then
     if [ -z "$WEB_DOMAIN" ]; then
         echo "Base domain cannot be empty. Please enter your base domain (e.g. example.com):"
         read WEB_DOMAIN
@@ -222,6 +223,11 @@ if [ -z "$WEB_DOMAIN" ] || [ -z "$WS_DOMAIN" ] || [ -z "$API_DOMAIN" ] || [ -z "
     if [ -z "$DEMOS_DOMAIN" ]; then
         DEMOS_DOMAIN="demos.$WEB_DOMAIN"
         update_env_var "overlays/config/api-config.env" "DEMOS_DOMAIN" "$DEMOS_DOMAIN"
+    fi
+
+    if [ -z "$HASURA_DOMAIN" ]; then
+        HASURA_DOMAIN="hasura.$WEB_DOMAIN"
+        update_env_var "overlays/config/api-config.env" "HASURA_DOMAIN" "$HASURA_DOMAIN"
     fi
 
     if [ -z "$MAIL_FROM" ]; then
@@ -269,10 +275,11 @@ fi
 echo "Domains and Hosts Configuration:"
 echo "--------------------------------"
 echo "WEB_DOMAIN: $WEB_DOMAIN"
-echo "WS_DOMAIN: $WS_DOMAIN" 
+echo "WS_DOMAIN: $WS_DOMAIN"
 echo "API_DOMAIN: $API_DOMAIN"
 echo "RELAY_DOMAIN: $RELAY_DOMAIN"
 echo "DEMOS_DOMAIN: $DEMOS_DOMAIN"
+echo "HASURA_DOMAIN: $HASURA_DOMAIN"
 echo "MAIL_FROM: $MAIL_FROM"
 echo "S3_CONSOLE_HOST: $S3_CONSOLE_HOST"
 echo "TYPESENSE_HOST: $TYPESENSE_HOST"
