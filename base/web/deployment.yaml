@@ -36,7 +36,6 @@ spec:
                       - 'true'
       containers:
         - image: ghcr.io/marcobrunodev/web:banana-server
-          imagePullPolicy: Always
           name: web
           ports:
             - containerPort: 3000
