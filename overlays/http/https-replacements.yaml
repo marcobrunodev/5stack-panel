@@ -259,5 +259,10 @@ patches:
       version: v1
       kind: Ingress
       name: hasura-console
+    path: ingress-patch.yaml
+  - target:
+      group: networking.k8s.io
+      version: v1
+      kind: Ingress
       name: file-manager
     path: ingress-patch.yaml

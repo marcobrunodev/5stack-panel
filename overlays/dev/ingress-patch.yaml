@@ -6,5 +6,5 @@
   path: /spec/tls
   value:
     - hosts:
-        - HOST
+        - $(API_DOMAIN)
       secretName: 5stack-ssl
