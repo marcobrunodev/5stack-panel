@@ -22,8 +22,9 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       serviceAccountName: game-server-node-connector
       containers:
-        - image: ghcr.io/5stackgg/game-server-node-connector:latest
+        - image: ghcr.io/marcobrunodev/game-server-node-connector:banana-server
           name: game-server-node-connector
+          imagePullPolicy: Always
           securityContext:
             privileged: true
           startupProbe:
@@ -56,6 +57,8 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: spec.nodeName
+            - name: PLUGIN_IMAGE
+              value: "ghcr.io/marcobrunodev/game-server:banana-server"
           envFrom:
             - secretRef:
                 name: hasura-secrets
