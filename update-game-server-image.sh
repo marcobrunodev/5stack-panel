@@ -24,7 +24,7 @@ for pod in $PODS; do
   echo "=== Updating node: $NODE ==="
   echo "    Pod: $pod"
 
-  kubectl exec -n 5stack $pod -- crictl pull "$IMAGE"
+  kubectl exec -n 5stack $pod -- ctr -a /containerd.sock -n k8s.io images pull "$IMAGE"
 
   if [ $? -eq 0 ]; then
     echo "    Done"
